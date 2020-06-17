@@ -5,10 +5,10 @@ const CACHE_NAME = 'flutter-app-cache';
 const RESOURCES = {
   "index.html": "b054d7841e397859a1891a27a5cf3bd2",
 "/": "b054d7841e397859a1891a27a5cf3bd2",
-"main.dart.js": "d187d99b80e7a5f0923a29ff57b2017d",
-"favicon.png": "5dcef449791fa27946b3d35ad8803796",
-"icons/Icon-192.png": "ac9a721a12bbc803b44f645561ecb1e1",
-"icons/Icon-512.png": "96e752610906ba2a93c65f8abe1645f1",
+"main.dart.js": "6cead5421a955031b81e949f7b06057f",
+"favicon.png": "47fae3d961ffb357b651b2d2f5610de5",
+"icons/Icon-192.png": "078d0a2029469688476d108530546b96",
+"icons/Icon-512.png": "edcf9db510426410eb3cb8d843635621",
 "manifest.json": "610b8a48a4b8fe2bb77ce8f06784120b",
 "assets/resources/fonts/Teko-Regular.ttf": "b35fa5f3177a8afc45d037059d2ec630",
 "assets/AssetManifest.json": "84bcdd6b5e373198547ad4cbc7435684",
@@ -24,7 +24,7 @@ const CORE = [
   "/",
 "main.dart.js",
 "index.html",
-"assets/LICENSE",
+"assets/NOTICES",
 "assets/AssetManifest.json",
 "assets/FontManifest.json"];
 
@@ -153,8 +153,8 @@ async function downloadOffline() {
   }
   for (var resourceKey in Object.keys(RESOURCES)) {
     if (!currentContent[resourceKey]) {
-      resources.add(resourceKey);
+      resources.push(resourceKey);
     }
   }
-  return Cache.addAll(resources);
+  return contentCache.addAll(resources);
 }
